@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アンケートご回答のお礼</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            text-align: center;
+            padding: 40px 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 18px 0;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 10px;
+            border: none;
+            margin: 15px 0;
+            transition: opacity 0.3s;
+        }
+        .btn:active { opacity: 0.7; }
+        .btn-copy { background-color: #2ecc71; color: white; }
+        .btn-review { background-color: #3498db; color: white; text-decoration: none; }
+        .review-box {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>ありがとうございます！</h1>
+    <p>デザート無料チケットの画面をスタッフへご提示ください。<br>
+    よろしければ、下記の応援メッセージを投稿していただけると励みになります！</p>
+
+    <div class="review-box" id="review-text">
+        料理もとても美味しく、接客も丁寧で素晴らしい時間を過ごせました！また必ず利用させていただきます。
+    </div>
+
+    <button class="btn btn-copy" onclick="copyToClipboard()">
+        ① 感想をコピーする
+    </button>
+
+    <a href="【ここにGoogle口コミのURLを貼り付けてください】" target="_blank" class="btn btn-review">
+        ② Googleマップに投稿する
+    </a>
+</div>
+
+<script>
+    function copyToClipboard() {
+        const text = document.getElementById("review-text").innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            alert("感想をコピーしました！\n次に開くGoogleマップの画面で貼り付けてください。");
+        }).catch(err => {
+            alert("コピーに失敗しました。お手数ですが長押しでコピーしてください。");
+        });
+    }
+</script>
+
+</body>
+</html>
